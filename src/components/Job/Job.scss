@@ -1,0 +1,121 @@
+$skills_color:hsl(180, 31%, 95%);
+.container{
+    margin: 10px auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 1000px;
+    border:1px solid rgb(250, 250, 251);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.308);
+    // font-size: 24px;
+    // border-left: 0.25em solid #4a90e2;
+    
+}
+.job_post{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2em;
+    padding:20px;
+    background: white;
+}
+
+
+.job_title_infos{
+    display: flex;
+    align-items:center;
+    gap:.5em;
+    margin: 5px 0px;
+    h4{
+        color:hsl(180, 29%, 50%);
+    }
+    .new{
+        color:white;
+        background-color:hsl(180, 29%, 50%);
+        border-radius:.7em/.7em;
+        padding:1px 5px;
+        white-space: nowrap;
+        font-weight:700;
+    }
+    .featured{
+        color:white;
+        background-color:hsl(180, 4%, 10%);
+        border-radius:.7em/.7em;
+        padding: 1px 5px;
+        font-weight:700;
+    }
+}
+.job_position{
+    display: flex; 
+    align-items:center;
+}
+
+.skills{
+    display: flex;
+    margin-left: auto;
+     gap:.5em;
+    p {
+        padding: 5px;
+        border-radius:4px;
+        background-color: hsl(180, 31%, 95%);
+        border :1px hsl(180, 31%, 95%);
+        color:hsl(180, 29%, 50%);
+        font-weight: 700;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+.job_post_date{
+    margin: 5px 0px;
+    ul{
+    display: flex;
+    align-items:center;
+    gap:2em;
+    li{
+        color: rgba(128, 128, 128, 0.52);
+        list-style-type: disc;
+        
+        white-space: nowrap;
+    }
+    li:first-child{
+        list-style: none;
+      }
+   
+    }
+
+}
+@media screen and (max-width: 1024px){
+    .container{
+        margin: 10px auto;
+         width: 98vw;
+    }
+}
+
+@media screen and (max-width: 805px) {
+.container{
+    margin: 10px auto;
+
+     width: 80vw;
+}
+
+    .job_post{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;   
+    }
+    .skills{
+        display: flex;
+        align-items: flex-start;
+        margin:0;   
+    }
+
+    hr {
+        display: inline-block;
+        border:none;
+        width: 100%;
+        height: .3px;
+        background-color: #8080809c;
+    }
+
+
+}
