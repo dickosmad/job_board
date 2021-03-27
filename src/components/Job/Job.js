@@ -30,7 +30,7 @@ export default function Job() {
       rest.includes(text)
     );
   });
-  console.log(filterJobs);
+  console.log("filter Jobs", filterJobs);
 
   return (
     <>
