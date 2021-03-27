@@ -1,16 +1,12 @@
-# Frontend Mentor - Job listings with filtering
-
-![Design preview for the Job listings with filtering coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
 
-Thanks for checking out this front-end coding challenge.
-
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+# Frontend Mentor - Job listings with filtering
 
 **To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
 
-## The challenge
+## The challenge :
+[Frontend Mentor](https://www.frontendmentor.io) 
 
 Your challenge is to build out this job listing page and get it looking as close to the design as possible.
 
@@ -42,3 +38,6 @@ So, if a job listing is for has the following categories `Frontend, Junior, Java
 Use the [data.json](./data.json) file to pull the data and then dynamically add the content. This would be perfect if you're looking to practice a JS library/framework like React, Vue, or Svelte.
 
 To add a filter, the user needs to click on the tablets on the right-side of the listing on desktop or the bottom on mobile. For each filter added, only listings containing all selected filters should be returned.
+## Final Result : 
+* Desktop View
+![desktop-design](https://user-images.githubusercontent.com/17516496/112715354-fbe6f300-8edf-11eb-997f-83bb0802aa22.jpg)
