@@ -1,5 +1,5 @@
 {
-  "name": "job_board",
+  "name": "job-listing-challenge",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -35,5 +35,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "keywords": [
+    "reactjs",
+    "useeffect",
+    "react-filter"
+  ],
+  "description": "The challenge is to build out this job listing page and get it looking as close to the design as possible.\n\nYou can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go."
 }
