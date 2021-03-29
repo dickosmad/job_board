@@ -5,40 +5,51 @@ import SearchBar from "../SearchBar/SearchBar";
 
 export default function Job() {
   const [jobs, setJobs] = useState([]);
-  const [text, setText] = useState([]);
+  const [tagFilter, setTagFilter] = useState([]);
   useEffect(() => {
     setJobs(datas);
   }, []);
-  console.log(jobs);
-  console.log(jobs.languages);
+  // console.log(jobs);
+
   const handleFilterInput = (e) => {
-    setText([...text, e.target.innerText]);
+    setTagFilter([...tagFilter, e.target.innerText]);
   };
   //   let { first, ...rest } = jobs.languages;
 
   const filterJobs = jobs.filter((job) => {
-    let [first, ...rest] = job.languages;
-    console.log(first, rest);
-    if (text.length === 0) {
+    let [language] = job.languages;
+    let level = job.level;
+    let role = job.role;
+    let [tool] = job.tools;
+    let tags = [role, level, tool, language];
+    console.log("tags", tags);
+
+    if (tagFilter.length === 0) {
       return job;
     }
-    console.log(job);
-    return (
-      job.level.includes(text) ||
-      job.position.includes(text) ||
-      first.includes(text) ||
-      rest.includes(text)
-    );
+    return tagFilter.every((t) => tags.includes(t));
   });
-  console.log("filter Jobs", filterJobs);
+  //console.log("filter Jobs", filterJobs);
+  const deleteFilter = (value) => {
+    if (tagFilter === undefined) return;
+    return setTagFilter(tagFilter.filter((tagFilter) => tagFilter !== value));
+  };
 
   return (
     <>
-      <SearchBar info={text} />
+      <SearchBar textTag={tagFilter} filters={deleteFilter} />
       {filterJobs &&
         filterJobs.map((job) => {
           return (
-            <div className="container" key={job.id}>
+            <div
+              className="container"
+              style={
+                job.featured
+                  ? { borderLeft: "5px solid hsl(180, 29%, 50%)" }
+                  : null
+              }
+              key={job.id}
+            >
               <div className="job_post">
                 <div className="logo">
                   <img src={job.logo} alt={job.company} />
@@ -64,9 +75,21 @@ export default function Job() {
                 <div onClick={handleFilterInput} className="skills">
                   <p className="skill">{job.role}</p>
                   <p className="skill">{job.level}</p>
+                  {job.tools &&
+                    job.tools.map((tool) => {
+                      return (
+                        <p className="skill" key={tool}>
+                          {tool}
+                        </p>
+                      );
+                    })}
                   {job &&
                     job.languages.map((language) => {
-                      return <p className="skill">{language}</p>;
+                      return (
+                        <p className="skill" key={language}>
+                          {language}
+                        </p>
+                      );
                     })}
                 </div>
               </div>
