@@ -1,9 +1,8 @@
 import React from "react";
 import "./SearchBar.scss";
-export default function SearchBar({ textTag, filters }) {
+export default function SearchBar({ textTag, filters, clearFilter }) {
   const id = new Date().getMilliseconds();
 
-  console.log("textTag", textTag);
   return (
     <header>
       <div className="search">
@@ -24,6 +23,11 @@ export default function SearchBar({ textTag, filters }) {
                 </div>
               </div>
             ))}
+          <div className="clear">
+            <span className="clear" onClick={clearFilter}>
+              Clear
+            </span>{" "}
+          </div>
         </div>
       )}
     </header>

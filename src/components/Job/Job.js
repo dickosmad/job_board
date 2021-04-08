@@ -9,35 +9,49 @@ export default function Job() {
   useEffect(() => {
     setJobs(datas);
   }, []);
-  // console.log(jobs);
-
   const handleFilterInput = (e) => {
     setTagFilter([...tagFilter, e.target.innerText]);
   };
-  //   let { first, ...rest } = jobs.languages;
-
+  // We'll filter jobs based on selected tags
+  // For that we'll get these tags the destructring it and use array.every
+  // that return all the truthy elements
   const filterJobs = jobs.filter((job) => {
-    let [language] = job.languages;
     let level = job.level;
     let role = job.role;
-    let [tool] = job.tools;
-    let tags = [role, level, tool, language];
-    console.log("tags", tags);
+    let tags = [role, level];
+    let tool = job.tools;
+    let language = job.languages;
+    if (tool !== undefined) {
+      tags.push(...tool);
+    }
+    // In our data we have some jobs that don't have languages array or tools
+    //and they're undefined , we'll not push them if it the case .
+    if (language !== undefined) {
+      tags.push(...language);
+    }
 
     if (tagFilter.length === 0) {
       return job;
     }
     return tagFilter.every((t) => tags.includes(t));
   });
-  //console.log("filter Jobs", filterJobs);
+  // Delete the filter tags
   const deleteFilter = (value) => {
     if (tagFilter === undefined) return;
     return setTagFilter(tagFilter.filter((tagFilter) => tagFilter !== value));
   };
+  // Just clearing the array by using empty array trick
+  const clearFilter = () => {
+    setTagFilter([]);
+  };
 
   return (
     <>
-      <SearchBar textTag={tagFilter} filters={deleteFilter} />
+      <SearchBar
+        textTag={tagFilter}
+        filters={deleteFilter}
+        clearFilter={clearFilter}
+      />
       {filterJobs &&
         filterJobs.map((job) => {
           return (
