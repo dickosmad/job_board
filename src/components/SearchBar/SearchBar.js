@@ -12,15 +12,13 @@ export default function SearchBar({ textTag, filters, clearFilter }) {
         <div className="filter_box">
           {textTag &&
             textTag.map((item) => (
-              <div>
-                <div key={id}>
-                  <button className="filter_items">
-                    {item}{" "}
-                    <span className="delete" onClick={() => filters(item)}>
-                      X
-                    </span>
-                  </button>
-                </div>
+              <div key={id}>
+                <button className="filter_items">
+                  {item}{" "}
+                  <span className="delete" onClick={() => filters(item)}>
+                    X
+                  </span>
+                </button>
               </div>
             ))}
           <div className="clear">
